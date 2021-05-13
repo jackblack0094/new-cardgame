@@ -87,4 +87,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8976cd80127de4bb3159ae9a793899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canPutOutOfDeck: 0
+  m_canPutOutOfDeck: 1
