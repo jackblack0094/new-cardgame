@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 229493987}
   m_Layer: 5
   m_Name: LowerShieldZone
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 240523668}
   m_Layer: 5
   m_Name: LowerHands
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 348435576}
   m_Layer: 5
   m_Name: 'UpperCemetery '
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 453208513}
   m_Layer: 5
   m_Name: UpperBattleZone
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 716622012}
   m_Layer: 5
   m_Name: UpperHands
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1085,7 +1085,7 @@ GameObject:
   - component: {fileID: 773201937}
   m_Layer: 5
   m_Name: UpperShieldZone
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1509,7 +1509,7 @@ GameObject:
   - component: {fileID: 1305823660}
   m_Layer: 5
   m_Name: LowerBattleZone
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 1708111297}
   m_Layer: 5
   m_Name: LowerCemetery
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1850,7 +1850,7 @@ GameObject:
   - component: {fileID: 1746080613}
   m_Layer: 5
   m_Name: UpperManaZone
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 1787946623}
   m_Layer: 5
   m_Name: LowerManaZone
-  m_TagString: DeckTag
+  m_TagString: ZoneTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
