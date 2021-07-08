@@ -2,12 +2,12 @@
 using UnityEngine.UI;
 
 /// <summary>
-/// カードの初期化とリセットをするコンポーネント
+/// ゲームの基本を担当するコンポーネント
 /// </summary>
-public class ResetButtonController : MonoBehaviour
+public class DMController : MonoBehaviour
 {
     /// <summary>このデッキの上にカードを置く</summary>
-    [SerializeField] LayoutGroup m_deck = null;
+    [SerializeField] GameObject m_deck = null;
     /// <summary>カードを置く枚数</summary>
     [SerializeField] int m_count = 6;
     /// <summary>カードのプレハブ</summary>
@@ -18,6 +18,10 @@ public class ResetButtonController : MonoBehaviour
     {
         m_cardSprites = Resources.LoadAll<Sprite>("Sprites");   // Resources/Sprites 以下にある全てのスプライトを読み込む
         Reset();
+    }
+    private void Update()
+    {
+        
     }
 
     /// <summary>
@@ -51,9 +55,13 @@ public class ResetButtonController : MonoBehaviour
     /// </summary>
     void DestroyAllCards()
     {
-        foreach(var card in GameObject.FindGameObjectsWithTag("CardTag"))
+        foreach (var card in GameObject.FindGameObjectsWithTag("CardTag"))
         {
             Destroy(card);
         }
+    }
+    public void test()
+    {
+        Debug.Log("test");
     }
 }

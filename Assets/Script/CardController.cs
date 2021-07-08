@@ -21,8 +21,12 @@ public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     /// <summary>動かす前に所属していたデッキ</summary>
     Transform m_originDeck = null;
 
+    [SerializeField] GameObject LowerBattleZone = null;
 
-
+    void OnValidate() 
+    {
+        
+    }
     void Start()
     {
         m_rectTransform = GetComponent<RectTransform>();
@@ -38,7 +42,7 @@ public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
         string message = $"OnPointerDown: {this.name}: ";
-        var currentDeck = GetCurrentDeck(eventData);
+        var currentDeck = GetCurrentZone(eventData);
 
         if (currentDeck)
         {
@@ -54,14 +58,23 @@ public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     }
     void IDropHandler.OnDrop(PointerEventData eventData) 
     {
-        var currentDeck = GetCurrentDeck(eventData);
-        if (currentDeck)
+        var currentZone = GetCurrentZone(eventData);
+        if (currentZone)
         {
-            this.transform.SetParent(currentDeck.transform);
+            this.transform.SetParent(currentZone.transform);
         }
-        else if(!currentDeck && m_canPutOutOfDeck == false)
+        else if(!currentZone && m_canPutOutOfDeck == false)
         {
             this.transform.SetParent(m_originDeck.transform);
+        }
+        Debug.Log($"OnDrop: {currentZone}" );
+        //置かれたゾーンによって違う処理をする
+        //BattleZone　このカードが何かをしらべてさらに処理を分岐
+        //ManaZone Manaカウントを増やす　多色の場合タップして置かれる
+
+        if (currentZone ==  LowerBattleZone)
+        {
+            Debug.Log("プレイ");
         }
     }
 
@@ -77,7 +90,7 @@ public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     /// </summary>
     /// <param name="eventData">PointerEventData 型の引数。マウス操作の情報が入っている。</param>
     /// <returns></returns>
-    public GameObject GetCurrentDeck(PointerEventData eventData)
+    public GameObject GetCurrentZone(PointerEventData eventData)
     {
         var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results); // マウスポインタの位置上に重なっている UI を全て results に取得する（※）
