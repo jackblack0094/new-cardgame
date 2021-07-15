@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckController : MonoBehaviour
+public class DeckController : DMController
 {
     // Start is called before the first frame update
     void Start()

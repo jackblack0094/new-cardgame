@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1637209303164278976}
   - component: {fileID: 1637209303164278982}
   m_Layer: 5
-  m_Name: CardPrefab 1
+  m_Name: CardPrefab
   m_TagString: CardTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637209303164278978}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
@@ -89,3 +89,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_canPutOutOfDeck: 1
   LowerBattleZone: {fileID: 0}
+  LowerManaZone: {fileID: 0}

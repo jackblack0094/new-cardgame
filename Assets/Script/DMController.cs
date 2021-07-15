@@ -6,8 +6,14 @@ using UnityEngine.UI;
 /// </summary>
 public class DMController : MonoBehaviour
 {
+    [SerializeField] public GameObject LowerDeck = null;
+    [SerializeField] public GameObject LowerCemetery = null;
+    [SerializeField] public GameObject LowerBattleZone = null;
+    [SerializeField] public GameObject LowerManaZone = null;
+    [SerializeField] public GameObject LowerHandZone = null;
+
     /// <summary>このデッキの上にカードを置く</summary>
-    [SerializeField] GameObject m_deck = null;
+    [SerializeField] GameObject m_tsetHand = null;
     /// <summary>カードを置く枚数</summary>
     [SerializeField] int m_count = 6;
     /// <summary>カードのプレハブ</summary>
@@ -34,7 +40,7 @@ public class DMController : MonoBehaviour
         for (int i = 0; i < m_count; i++)
         {
             Image image = CreateRandomCard();
-            image.transform.SetParent(m_deck.transform);
+            image.transform.SetParent(m_tsetHand.transform);
         }
     }
 

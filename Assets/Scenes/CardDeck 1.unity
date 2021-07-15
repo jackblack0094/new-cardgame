@@ -272,9 +272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b030de407c460394d9b0ea00d97fc847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_deck: {fileID: 0}
+  m_deck: {fileID: 2093540659}
   m_count: 6
-  m_cardPrefab: {fileID: 0}
+  m_cardPrefab: {fileID: 1869162697}
 --- !u!1 &236677633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1270,11 @@ PrefabInstance:
       propertyPath: LowerBattleZone
       value: 
       objectReference: {fileID: 1305823655}
+    - target: {fileID: 1637209303164278982, guid: 3e226070b745fe644b3873b3f8962e24,
+        type: 3}
+      propertyPath: LowerManaZone
+      value: 
+      objectReference: {fileID: 229493985}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e226070b745fe644b3873b3f8962e24, type: 3}
 --- !u!1 &1305823655
@@ -1777,6 +1782,18 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &1869162697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1637209303164278976, guid: 3e226070b745fe644b3873b3f8962e24,
+    type: 3}
+  m_PrefabInstance: {fileID: 1171296487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1910468979
 GameObject:
   m_ObjectHideFlags: 0

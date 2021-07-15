@@ -10,7 +10,7 @@ using System.Linq;
 /// https://docs.unity3d.com/ja/2018.4/ScriptReference/EventSystems.IBeginDragHandler.html
 /// （※）左パネルのリストに使えるインターフェイスの一覧がある
 /// </summary>
-public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, IBeginDragHandler,IDropHandler
+public class CardController : DMController, IDragHandler, IPointerDownHandler, IBeginDragHandler,IDropHandler
 {
     /// <summary>テーブルオブジェクト（"TableTag" が付いている UI オブジェクト）</summary>
     GameObject m_table = null;
@@ -21,7 +21,6 @@ public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     /// <summary>動かす前に所属していたデッキ</summary>
     Transform m_originDeck = null;
 
-    [SerializeField] GameObject LowerBattleZone = null;
 
     void OnValidate() 
     {
@@ -62,20 +61,24 @@ public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, 
         if (currentZone)
         {
             this.transform.SetParent(currentZone.transform);
+            //置かれたゾーンによって違う処理をする
+            //BattleZone　このカードが何かをしらべてさらに処理を分岐
+            //ManaZone Manaカウントを増やす　多色の場合タップして置かれる
+
+            if (currentZone == LowerBattleZone)
+            {
+                Debug.Log("プレイ");
+            }
+            if (currentZone == LowerManaZone)
+            {
+
+            }
         }
         else if(!currentZone && m_canPutOutOfDeck == false)
         {
             this.transform.SetParent(m_originDeck.transform);
         }
         Debug.Log($"OnDrop: {currentZone}" );
-        //置かれたゾーンによって違う処理をする
-        //BattleZone　このカードが何かをしらべてさらに処理を分岐
-        //ManaZone Manaカウントを増やす　多色の場合タップして置かれる
-
-        if (currentZone ==  LowerBattleZone)
-        {
-            Debug.Log("プレイ");
-        }
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
