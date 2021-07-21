@@ -272,7 +272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b030de407c460394d9b0ea00d97fc847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_deck: {fileID: 2093540659}
+  LowerDeck: {fileID: 0}
+  LowerCemetery: {fileID: 0}
+  LowerBattleZone: {fileID: 0}
+  LowerManaZone: {fileID: 0}
+  LowerHandZone: {fileID: 0}
+  m_tsetHand: {fileID: 0}
   m_count: 6
   m_cardPrefab: {fileID: 1869162697}
 --- !u!1 &236677633
@@ -522,9 +527,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 453208508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490f2440b6554b1499dc9cabbb537774, type: 3}
+  m_Script: {fileID: 11500000, guid: 53264989daada1e44bb93d7eded4fd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LowerDeck: {fileID: 0}
+  LowerCemetery: {fileID: 0}
+  LowerBattleZone: {fileID: 0}
+  LowerManaZone: {fileID: 0}
+  LowerHandZone: {fileID: 0}
+  m_tsetHand: {fileID: 0}
+  m_count: 6
+  m_cardPrefab: {fileID: 0}
 --- !u!1 &547634936
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +550,7 @@ GameObject:
   - component: {fileID: 547634937}
   m_Layer: 0
   m_Name: DMcontroller
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +567,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771959b4916130043b47c1307a80e3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_deck: {fileID: 1787946619}
+  LowerDeck: {fileID: 2093540663}
+  LowerCemetery: {fileID: 1708111293}
+  LowerBattleZone: {fileID: 1305823660}
+  LowerManaZone: {fileID: 229493990}
+  LowerHandZone: {fileID: 1787946619}
+  m_tsetHand: {fileID: 1787946619}
   m_count: 6
   m_cardPrefab: {fileID: 1637209303164278976, guid: 3e226070b745fe644b3873b3f8962e24,
     type: 3}
@@ -823,7 +841,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b030de407c460394d9b0ea00d97fc847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_deck: {fileID: 0}
+  LowerDeck: {fileID: 0}
+  LowerCemetery: {fileID: 0}
+  LowerBattleZone: {fileID: 0}
+  LowerManaZone: {fileID: 0}
+  LowerHandZone: {fileID: 0}
+  m_tsetHand: {fileID: 0}
   m_count: 6
   m_cardPrefab: {fileID: 0}
 --- !u!1 &1054032626
@@ -1269,12 +1292,17 @@ PrefabInstance:
         type: 3}
       propertyPath: LowerBattleZone
       value: 
-      objectReference: {fileID: 1305823655}
+      objectReference: {fileID: 1305823660}
     - target: {fileID: 1637209303164278982, guid: 3e226070b745fe644b3873b3f8962e24,
         type: 3}
       propertyPath: LowerManaZone
       value: 
-      objectReference: {fileID: 229493985}
+      objectReference: {fileID: 229493990}
+    - target: {fileID: 1637209303164278982, guid: 3e226070b745fe644b3873b3f8962e24,
+        type: 3}
+      propertyPath: LowerDeck
+      value: 
+      objectReference: {fileID: 2093540663}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e226070b745fe644b3873b3f8962e24, type: 3}
 --- !u!1 &1305823655
@@ -1387,9 +1415,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1305823655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490f2440b6554b1499dc9cabbb537774, type: 3}
+  m_Script: {fileID: 11500000, guid: 53264989daada1e44bb93d7eded4fd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LowerDeck: {fileID: 0}
+  LowerCemetery: {fileID: 0}
+  LowerBattleZone: {fileID: 0}
+  LowerManaZone: {fileID: 0}
+  LowerHandZone: {fileID: 0}
+  m_tsetHand: {fileID: 0}
+  m_count: 6
+  m_cardPrefab: {fileID: 0}
 --- !u!1 &1416174422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1530,7 @@ GameObject:
   - component: {fileID: 1708111296}
   - component: {fileID: 1708111295}
   - component: {fileID: 1708111297}
+  - component: {fileID: 1708111298}
   m_Layer: 5
   m_Name: LowerCemetery
   m_TagString: ZoneTag
@@ -1517,7 +1554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 463.00003, y: -88}
+  m_AnchoredPosition: {x: 462, y: -96}
   m_SizeDelta: {x: 126, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1708111295
@@ -1582,6 +1619,18 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &1708111298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708111293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12b52624eb53104e83c9dcd5775192a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746080609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1662,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2139616322}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1713,7 +1762,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2139616322}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1805,7 +1854,6 @@ GameObject:
   - component: {fileID: 1910468980}
   - component: {fileID: 1910468982}
   - component: {fileID: 1910468981}
-  - component: {fileID: 1910468983}
   m_Layer: 5
   m_Name: TablePanel
   m_TagString: TableTag
@@ -1872,18 +1920,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910468979}
   m_CullTransparentMesh: 0
---- !u!114 &1910468983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910468979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8df97adf6a0a8d48aaeefd00beda3e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2093540659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,7 +1955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 463.00003, y: -264}
+  m_AnchoredPosition: {x: 463.00003, y: -272}
   m_SizeDelta: {x: 126, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093540661
@@ -1971,6 +2007,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0af5bccf45c68d469806c7947e1e866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LowerDeck: {fileID: 0}
+  LowerCemetery: {fileID: 0}
+  LowerBattleZone: {fileID: 0}
+  LowerManaZone: {fileID: 0}
+  LowerHandZone: {fileID: 0}
+  m_tsetHand: {fileID: 0}
+  m_count: 6
+  m_cardPrefab: {fileID: 0}
 --- !u!1 &2139616321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,8 +2042,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1787946620}
   - {fileID: 1746080610}
+  - {fileID: 1787946620}
   m_Father: {fileID: 42683924}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

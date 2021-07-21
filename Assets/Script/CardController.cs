@@ -21,6 +21,11 @@ public class CardController : DMController, IDragHandler, IPointerDownHandler, I
     /// <summary>動かす前に所属していたデッキ</summary>
     Transform m_originDeck = null;
 
+    public enum CardType
+    {
+        back,
+        Front,
+    }
 
     void OnValidate() 
     {

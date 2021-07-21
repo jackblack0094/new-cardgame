@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicCard : MonoBehaviour
+public class BattleZoneController : DMController
 {
-    public enum CardType
-    {
-        Creature,
-        spell,
-
-    }
     // Start is called before the first frame update
     void Start()
     {

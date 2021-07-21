@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+
 /// <summary>
 /// ゲームの基本を担当するコンポーネント
 /// </summary>
 public class DMController : MonoBehaviour
 {
-    [SerializeField] public GameObject LowerDeck = null;
-    [SerializeField] public GameObject LowerCemetery = null;
-    [SerializeField] public GameObject LowerBattleZone = null;
-    [SerializeField] public GameObject LowerManaZone = null;
-    [SerializeField] public GameObject LowerHandZone = null;
+    public DeckController LowerDeck = null;
+    public GameObject LowerCemetery = null;
+    public GameObject LowerBattleZone = null;
+    public ManaZoneController LowerManaZone = null;
+    public GameObject LowerHandZone = null;
 
     /// <summary>このデッキの上にカードを置く</summary>
     [SerializeField] GameObject m_tsetHand = null;
@@ -22,6 +23,8 @@ public class DMController : MonoBehaviour
 
     void Start()
     {
+        LowerBattleZone = GameObject.Find("LowerBattleZone");
+
         m_cardSprites = Resources.LoadAll<Sprite>("Sprites");   // Resources/Sprites 以下にある全てのスプライトを読み込む
         Reset();
     }
@@ -69,5 +72,9 @@ public class DMController : MonoBehaviour
     public void test()
     {
         Debug.Log("test");
+    }
+    public void Canplaytest()
+    {
+
     }
 }
