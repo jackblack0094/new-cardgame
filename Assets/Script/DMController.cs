@@ -14,7 +14,7 @@ public class DMController : MonoBehaviour
     public GameObject LowerHandZone = null;
 
     /// <summary>このデッキの上にカードを置く</summary>
-    [SerializeField] GameObject m_tsetHand = null;
+    [SerializeField] GameObject m_tsetGenerat = null;
     /// <summary>カードを置く枚数</summary>
     [SerializeField] int m_count = 6;
     /// <summary>カードのプレハブ</summary>
@@ -26,7 +26,7 @@ public class DMController : MonoBehaviour
         LowerBattleZone = GameObject.Find("LowerBattleZone");
 
         m_cardSprites = Resources.LoadAll<Sprite>("Sprites");   // Resources/Sprites 以下にある全てのスプライトを読み込む
-        Reset();
+        //Reset();
     }
     private void Update()
     {
@@ -43,7 +43,7 @@ public class DMController : MonoBehaviour
         for (int i = 0; i < m_count; i++)
         {
             Image image = CreateRandomCard();
-            image.transform.SetParent(m_tsetHand.transform);
+            image.transform.SetParent(m_tsetGenerat.transform);
         }
     }
 
@@ -54,8 +54,8 @@ public class DMController : MonoBehaviour
     Image CreateRandomCard()
     {
         Image image = Instantiate(m_cardPrefab);
-        image.sprite = m_cardSprites[Random.Range(0, m_cardSprites.Length)];
-        image.gameObject.name = image.sprite.name;
+        //image.sprite = m_cardSprites[Random.Range(0, m_cardSprites.Length)];
+        //image.gameObject.name = image.sprite.name;
         return image;
     }
 

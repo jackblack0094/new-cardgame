@@ -87,6 +87,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8976cd80127de4bb3159ae9a793899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canPutOutOfDeck: 1
+  LowerDeck: {fileID: 0}
+  LowerCemetery: {fileID: 0}
   LowerBattleZone: {fileID: 0}
   LowerManaZone: {fileID: 0}
+  LowerHandZone: {fileID: 0}
+  m_tsetHand: {fileID: 0}
+  m_count: 6
+  m_cardPrefab: {fileID: 0}
+  m_canPutOutOfDeck: 1
