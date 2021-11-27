@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems; // この名前空間にあるインターフェイスを使う
 using System.Linq;
 
@@ -10,36 +11,65 @@ using System.Linq;
 /// https://docs.unity3d.com/ja/2018.4/ScriptReference/EventSystems.IBeginDragHandler.html
 /// （※）左パネルのリストに使えるインターフェイスの一覧がある
 /// </summary>
-public class CardController : DMController, IDragHandler, IPointerDownHandler, IBeginDragHandler,IDropHandler
+public class CardController : MonoBehaviour, IDragHandler, IPointerDownHandler, IBeginDragHandler,IDropHandler
 {
     /// <summary>テーブルオブジェクト（"TableTag" が付いている UI オブジェクト）</summary>
-    GameObject m_table = null;
+    GameObject _table = null;
     /// <summary>このオブジェクトの Rect Transform</summary>
-    RectTransform m_rectTransform = null;
+    RectTransform _rectTransform = null;
     /// <summary>デッキの外に置けるかどうかの設定</summary>
-    [SerializeField] bool m_canPutOutOfDeck = false;
+    [SerializeField] bool _canPutOutOfDeck = false;
     /// <summary>動かす前に所属していたデッキ</summary>
-    Transform m_originDeck = null;
+    Transform _originDeck = null;
+    /// <summary>このカードの名前</summary>
+    [SerializeField] private Text cardname;
+    /// <summary>このカードをプレイするのにかかるコスト</summary>
+    [SerializeField] private Text cost;
 
-    public enum CardType
+    GameObject _LowerBattleZone;
+    GameObject _LowerManaZone;
+
+    [SerializeField] bool back,tap,inmana;
+
+
+    void Update()
     {
-        back,
-        Front,
+        Transform myTransform = this.transform;
+        Vector3 Angle = myTransform.eulerAngles;
+        if (tap && inmana)
+        {
+            Angle.z = 270f;
+            myTransform.eulerAngles = Angle;
+        }
+        if (!tap && inmana)
+        {
+            Angle.z = 180f;
+            myTransform.eulerAngles = Angle;
+        }
+        if (tap && !inmana)
+        {
+            Angle.z = 90f;
+            myTransform.eulerAngles = Angle;
+        }
+        if (!tap && !inmana)
+        {
+            Angle.z = 0f;
+            myTransform.eulerAngles = Angle;
+        }
+        //backの処理
     }
 
-    void OnValidate() 
-    {
-        
-    }
     void Start()
     {
-        m_rectTransform = GetComponent<RectTransform>();
-        m_table = GameObject.FindGameObjectWithTag("TableTag");
+        _LowerBattleZone = GameObject.Find("LowerBattleZone");
+
+        _rectTransform = GetComponent<RectTransform>();
+        _table = GameObject.FindGameObjectWithTag("TableTag");
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        m_rectTransform.position = eventData.position;
+        _rectTransform.position = eventData.position;
         this.transform.SetAsLastSibling();
     }
 
@@ -51,7 +81,7 @@ public class CardController : DMController, IDragHandler, IPointerDownHandler, I
         if (currentDeck)
         {
             message += $"マウスポインタは {currentDeck.name} の上にあります";
-            m_originDeck = currentDeck.transform;
+            _originDeck = currentDeck.transform;
         }
         else
         {
@@ -70,26 +100,46 @@ public class CardController : DMController, IDragHandler, IPointerDownHandler, I
             //BattleZone　このカードが何かをしらべてさらに処理を分岐
             //ManaZone Manaカウントを増やす　多色の場合タップして置かれる
 
-            if (currentZone == LowerBattleZone)
+            if (transform.parent.gameObject == _LowerBattleZone)
             {
-                Debug.Log("プレイ");
+                Debug.Log("tryプレイ");
+                if (ManaZoneController.Instance.canusemana >= int.Parse(this.cost.text))
+                {
+                    ManaZoneController.Instance.usedmana += int.Parse(this.cost.text);
+                    testcip();
+                }
+                else
+                {
+                    this.transform.SetParent(_originDeck.transform);
+                    Debug.Log("プレイ失敗");
+                    Debug.Log(ManaZoneController.Instance.canusemana);
+                }
             }
-            if (currentZone == LowerManaZone)
+            if (transform.parent.gameObject == _LowerManaZone)
             {
-
+                Debug.Log("testmana");
+                inmana = true;
             }
         }
-        else if(!currentZone && m_canPutOutOfDeck == false)
+        else if(!currentZone && _canPutOutOfDeck == false)
         {
-            this.transform.SetParent(m_originDeck.transform);
+            this.transform.SetParent(_originDeck.transform);
         }
         Debug.Log($"OnDrop: {currentZone}" );
+        Debug.Log($"{transform.parent.gameObject}" );
+    }
+
+    public void testcip()
+    {
+        //cip効果
+        Debug.Log("cip処理開始");
+
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log($"OnBeginDrag: {this.name}");
-        this.transform.SetParent(m_table.transform);
+        this.transform.SetParent(_table.transform);
     }
 
     /// <summary>

@@ -10,6 +10,7 @@ public class DMController : MonoBehaviour
     public DeckController LowerDeck = null;
     public GameObject LowerCemetery = null;
     public GameObject LowerBattleZone = null;
+    public GameObject BattleZone = null;
     public ManaZoneController LowerManaZone = null;
     public GameObject LowerHandZone = null;
 
@@ -23,7 +24,7 @@ public class DMController : MonoBehaviour
 
     void Start()
     {
-        LowerBattleZone = GameObject.Find("LowerBattleZone");
+      //  LowerBattleZone = GameObject.Find("LowerBattleZone");
 
         m_cardSprites = Resources.LoadAll<Sprite>("Sprites");   // Resources/Sprites 以下にある全てのスプライトを読み込む
         //Reset();
